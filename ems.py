@@ -1,19 +1,17 @@
 import numpy as np
-from models.pv_model import PVModel
-from models.wind_model import WMTodel
-from models.batteries_model import BatteryModel
-from models.dg_model import DGModel
+# Corrected imports to point to root directory and use corrected WindModel name
+from pv_model import PVModel
+from wind_model import WindModel # Corrected WMTodel to WindModel
+from batteries_model import BatteryModel
+from dg_model import DGModel
 
-def ems_dispatch(pv_power, wind_power, load_demand, 
-                 battery_model, dg_model, DT, eff_inv=0.95):
-    from models.batteries_model import BatteryModel
-    from models.dg_model import DGModel
-
-def ems_dispatch(pv_power, wind_power, load_demand, 
-                battery_model: BatteryModel, 
-                dg_model: DGModel, 
+# Removed the first, simpler ems_dispatch definition.
+# Kept the second one with type hints.
+def ems_dispatch(pv_power, wind_power, load_demand,
+                battery_model: BatteryModel,
+                dg_model: DGModel,
                 DT, eff_inv=0.95):
-
+    # Removed local imports for BatteryModel and DGModel as they are now at module level
     """
     EMS dispatch algorithm for each hour.
 
@@ -117,8 +115,9 @@ def run_ems(season_df, pv_size, wind_size, battery_size, dg_size):
     load_w = load_kw * 1000
 
     # === Instantiate models ===
+    # PVModel and WindModel (formerly WMTodel) will now be correctly imported
     pv_model = PVModel(num_modules=pv_size, G=G, Ta=Ta, V=V)
-    wind_model = WMTodel(num_turbines=wind_size, V=V)
+    wind_model = WindModel(num_turbines=wind_size, V=V) # Corrected class name
     battery_model = BatteryModel(num_batteries=battery_size, DT=DT, num_steps=num_steps)
     dg_model = DGModel(num_generators=dg_size, DT=DT, num_steps=num_steps)
 

@@ -1,12 +1,12 @@
 import numpy as np
 
-class WMTodel:
-    def __init__(self, num_turbines, V, 
+class WindModel:  # Changed WMTodel to WindModel here
+    def __init__(self, num_turbines, V,
                  rated_power=20000,  # W
                  cut_in=2.75, rated=7.5, cut_out=20,
                  hub_height=36, ref_height=10, alpha=0.25,
                  capital_cost=38745, turbine_efficiency=0.95, lifetime=25):
-        
+
         # Turbine performance
         self.V = V  # wind_speed_ref
         self.num_turbines = num_turbines
