@@ -30,7 +30,7 @@ research-hres-optimization/
 ├── data/
 │   └── Accepted_Week_Data.xlsx  # Input data (hourly for four seasonal weeks)
 └── .gitignore
-
+```
 
 ## ⚙️ Optimization Approach
 
