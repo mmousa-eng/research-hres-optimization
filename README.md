@@ -12,9 +12,8 @@ Multi-objective algorithm: NSGA-II
 EMS: Greedy logic (PV → Wind → Battery → DG → Load Shedding)
 
 ## 📁 Project Structure
-bash
-Copy
-Edit
+```bash
+python main_nsga2.py
 research-hres-optimization/
 │
 ├── main_ga.py              # Run optimization using Genetic Algorithm
@@ -37,22 +36,4 @@ research-hres-optimization/
 
 Run the desired optimization script, e.g.:
 
-```bash
-python main_nsga2.py
-research-hres-optimization/
-│
-├── main_ga.py              # Run optimization using Genetic Algorithm
-├── main_nsga2.py           # Run optimization using NSGA-II
-├── size_ga.py              # GA logic
-├── size_nsga2.py           # NSGA-II logic
-├── ems.py                  # Rule-based energy dispatch
-├── utils/
-│   └── load_data.py        # Loads Excel weather/load input data
-├── models/
-│   ├── pv_model.py         # PV system simulation
-│   ├── wind_model.py       # Wind turbine simulation
-│   ├── batteries_model.py  # Battery system simulation
-│   └── dg_model.py         # Diesel generator model
-├── data/
-│   └── Accepted_Week_Data.xlsx  # Input data (hourly for four seasonal weeks)
-└── .gitignore
+
