@@ -4,5 +4,9 @@ This repository presents the full simulation and optimization of a standalone Hy
 Technologies: Python • NSGA-II • PVLib • NumPy • Pandas
 
 ## 📈 Objectives
-🔧 Design optimization of HRES components: PV, Wind, Battery, and Diesel Generator (DG)
+🔧 Design optimization of the HRES components: PV, Wind, Battery, and Diesel Generator (DG)
 
+## ⚙️ Optimization Approach
+Multi-objective algorithm: NSGA-II
+
+EMS: Greedy logic (PV → Wind → Battery → DG → Load Shedding)
