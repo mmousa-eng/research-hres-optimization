@@ -2,7 +2,7 @@ import os
 import numpy as np
 import math
 from size_nsga2 import run_annual_nsga2_optimization
-from load_data import load_data
+from utils.load_data import load_data
 
 # Constants for calculating number of units
 PV_MODULE_RATING_W = 1000

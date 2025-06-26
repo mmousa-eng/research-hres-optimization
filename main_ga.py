@@ -1,7 +1,7 @@
 import os
 # Changed from run_ga_for_season to run_annual_ga_optimization
 from size_ga import run_annual_ga_optimization 
-from load_data import load_data # Assuming this path and loader are correct
+from utils.load_data import load_data # Assuming this path and loader are correct
 
 def main():
     project_root = os.path.dirname(__file__)
