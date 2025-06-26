@@ -32,6 +32,7 @@ research-hres-optimization/
 │   └── Accepted_Week_Data.xlsx  # Input data (hourly for four seasonal weeks)
 └── .gitignore
 
+
 ## 🚀 Running the Optimization
 
 Run the desired optimization script, e.g.:
