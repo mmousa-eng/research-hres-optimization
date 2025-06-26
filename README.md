@@ -8,5 +8,4 @@ Technologies: Python • NSGA-II • PVLib • NumPy • Pandas
 
 ## ⚙️ Optimization Approach
 Multi-objective algorithm: NSGA-II
-
 EMS: Greedy logic (PV → Wind → Battery → DG → Load Shedding)
