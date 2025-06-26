@@ -13,7 +13,6 @@ EMS: Greedy logic (PV → Wind → Battery → DG → Load Shedding)
 
 ## 📁 Project Structure
 ```bash
-python main_nsga2.py
 research-hres-optimization/
 │
 ├── main_ga.py              # Run optimization using Genetic Algorithm
