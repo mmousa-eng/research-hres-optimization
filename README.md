@@ -1,7 +1,7 @@
 # 🔍 Research: Multi-Objective Optimization of Hybrid Renewable Energy System (HRES) Sizing Using NSGA-II 
 This repository presents a full simulation and optimization of a standalone Hybrid Renewable Energy System (HRES) designed to supply power to a rural community in Udhruh, southern Jordan.
 
-Technologies: Python • AI Optimization (NSGA-II) • PVLib • NumPy • Pandas
+Technologies: Python • AI Optimization (NSGA-II) • PVLib • NumPy • Pandas • HRES
 
 ## 📈 Objectives
 🔧 Design optimization of the HRES components: PV, Wind, Battery, and Diesel Generator (DG)
