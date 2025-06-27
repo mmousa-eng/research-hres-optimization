@@ -1,10 +1,23 @@
-# Ignore Python cache files
+# Python cache
 __pycache__/
 *.pyc
 
-# Ignore Jupyter notebook checkpoints (optional)
+# Jupyter notebook checkpoints (optional)
 .ipynb_checkpoints/
 
-# Ignore environment files
+# Virtual environments
 .env/
 venv/
+.venv/
+
+# VS Code settings
+.vscode/
+
+# Results or plots (optional, if you generate them)
+results/
+*.png
+*.jpg
+
+# OS-specific files
+.DS_Store
+Thumbs.db
