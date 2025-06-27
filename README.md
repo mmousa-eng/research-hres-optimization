@@ -35,7 +35,7 @@ research-hres-optimization/
 ## 📊 Sample Output
 | Objective             | PV (N) | Wind (N) | Battery (N) | DG (N) | Investment Cost ($) | Operational Cost ($/yr) | CO₂ Emissions (kg/yr) | DG Contribution (%) |
 |-----------------------|--------|----------|-------------|--------|---------------------|-------------------------|-----------------------|---------------------|
-| Minimum Investment    | 3      | 1        | 2           | 15     | 4,883.10            | 18,565                  | 28,569                | 98.23               |
-| Minimum Operational   | 39     | 1        | 2           | 15     | 15,983.10           | 18,145                  | 26,681                | 78.13               |
-| Minimum CO₂ Emissions | 40     | 4        | 50          | 15     | 89,714.70           | 58,588                  | 15,025                | 4.23                |
-| Best Trade-off        | 3      | 1        | 6           | 16     | 13,980.28           | 24,909                  | 23,607                | 32.97               |
+| Minimum Investment    | 3      | 1        | 2           | 15     | 4,883               | 18,565                  | 28,569                | 98.23               |
+| Minimum Operational   | 39     | 1        | 2           | 15     | 15,983              | 18,145                  | 26,681                | 78.13               |
+| Minimum CO₂ Emissions | 40     | 4        | 50          | 15     | 89,715              | 58,588                  | 15,025                | 4.23                |
+| Best Trade-off        | 3      | 1        | 6           | 16     | 13,980              | 24,909                  | 23,607                | 32.97               |
