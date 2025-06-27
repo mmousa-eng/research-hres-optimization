@@ -4,7 +4,7 @@ This repository presents a full simulation and optimization of a standalone Hybr
 Technologies: Python • NumPy • Pandas • PVLib • AI Optimization (NSGA-II) • HRES
 
 ## 📈 Objectives
-Design optimization of the HRES components: PV, Wind, Battery, and Diesel Generator (DG)
+Sizing optimization of HRES components: PV, Wind, Battery, and Diesel Generator
 
 ## ⚙️ Optimization Approach
 Multi-objective algorithm: NSGA-II
