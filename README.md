@@ -27,7 +27,7 @@ research-hres-optimization/
 └── .gitignore
 ```
 
-## 📊 Sample Output
+## 📊 Results
 | Objective             | PV (N) | Wind (N) | Battery (N) | DG (N) | Investment Cost ($) | Operational Cost ($/yr) | CO₂ Emissions (kg/yr) | DG Contribution (%) |
 |-----------------------|--------|----------|-------------|--------|---------------------|-------------------------|-----------------------|---------------------|
 | Minimum Investment    | 3      | 1        | 2           | 15     | 4,883               | 18,565                  | 28,569                | 98.23               |
