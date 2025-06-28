@@ -10,8 +10,8 @@ Sizing optimization of HRES components: PV, Wind, Battery, and Diesel Generator 
 ```bash
 research-hres-optimization/
 │
-├── main_ga.py              # Run optimization using Genetic Algorithm
-├── main_nsga2.py           # Run optimization using NSGA-II
+├── main_ga.py              # Runs optimization using Genetic Algorithm
+├── main_nsga2.py           # Runs optimization using NSGA-II
 ├── size_ga.py              # GA logic
 ├── size_nsga2.py           # NSGA-II logic
 ├── ems.py                  # Rule-based energy dispatch
