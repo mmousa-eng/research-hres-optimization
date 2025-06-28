@@ -16,14 +16,14 @@ research-hres-optimization/
 ├── size_nsga2.py           # NSGA-II logic
 ├── ems.py                  # Rule-based energy dispatch
 ├── utils/
-│   └── load_data.py        # Loads Excel weather/load input data
+│   └── load_data.py        # Loads Excel input data
 ├── models/
-│   ├── pv_model.py         # PV system simulation
-│   ├── wind_model.py       # Wind turbine simulation
-│   ├── batteries_model.py  # Battery system simulation
+│   ├── pv_model.py         # PV system model
+│   ├── wind_model.py       # Wind turbine model
+│   ├── batteries_model.py  # Battery system model
 │   └── dg_model.py         # Diesel generator model
 ├── data/
-│   └── Accepted_Week_Data.xlsx  # Input data (hourly for four seasonal weeks)
+│   └── Accepted_Week_Data.xlsx  # Input data
 └── .gitignore
 ```
 
