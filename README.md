@@ -24,7 +24,8 @@ research-hres-optimization/
 │   └── dg_model.py         # Diesel generator model
 ├── data/
 │   └── Accepted_Week_Data.xlsx  # Input data
-└── .gitignore
+├── README.md               # Project overview
+└── .gitignore          
 ```
 
 ## 📊 Results
