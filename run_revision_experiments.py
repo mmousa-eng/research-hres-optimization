@@ -501,8 +501,8 @@ def main():
     ax.scatter(archs_s1['Min_Op']['investment_cost'], archs_s1['Min_Op']['operational_cost'], color='blue', marker='s', s=130, zorder=5, label='Min O&M Cost')
     ax.scatter(archs_s1['Min_CO2']['investment_cost'], archs_s1['Min_CO2']['operational_cost'], color='green', marker='D', s=130, zorder=5, label='Min CO2')
     ax.scatter(archs_s1['Balanced_TOPSIS']['investment_cost'], archs_s1['Balanced_TOPSIS']['operational_cost'], color='gold', edgecolors='black', marker='*', s=220, zorder=6, label='Balanced (TOPSIS & Equal-Wt)')
-    ax.set_xlabel('Annualized Investment Cost, $f_1$ ($/yr)')
-    ax.set_ylabel('Annual Operational Cost, $f_2$ ($/yr)')
+    ax.set_xlabel('Annualized Investment Cost, $f_1$ (USD/yr)')
+    ax.set_ylabel('Annual Operational Cost, $f_2$ (USD/yr)')
     ax.set_title('(a) Investment Cost vs. Operational Cost')
     ax.grid(True, linestyle='--', alpha=0.5)
     ax.legend(fontsize=8, loc='upper left')
@@ -514,7 +514,7 @@ def main():
     ax.scatter(archs_s1['Min_Op']['investment_cost'], archs_s1['Min_Op']['co2_emissions'], color='blue', marker='s', s=130, zorder=5, label='Min O&M Cost')
     ax.scatter(archs_s1['Min_CO2']['investment_cost'], archs_s1['Min_CO2']['co2_emissions'], color='green', marker='D', s=130, zorder=5, label='Min CO2')
     ax.scatter(archs_s1['Balanced_TOPSIS']['investment_cost'], archs_s1['Balanced_TOPSIS']['co2_emissions'], color='gold', edgecolors='black', marker='*', s=220, zorder=6, label='Balanced (TOPSIS)')
-    ax.set_xlabel('Annualized Investment Cost, $f_1$ ($/yr)')
+    ax.set_xlabel('Annualized Investment Cost, $f_1$ (USD/yr)')
     ax.set_ylabel('Annual $CO_2$ Emissions, $f_3$ (kg/yr)')
     ax.set_title('(b) Investment Cost vs. $CO_2$ Emissions')
     ax.grid(True, linestyle='--', alpha=0.5)
@@ -527,7 +527,7 @@ def main():
     ax.scatter(archs_s1['Min_Op']['operational_cost'], archs_s1['Min_Op']['co2_emissions'], color='blue', marker='s', s=130, zorder=5, label='Min O&M Cost')
     ax.scatter(archs_s1['Min_CO2']['operational_cost'], archs_s1['Min_CO2']['co2_emissions'], color='green', marker='D', s=130, zorder=5, label='Min CO2')
     ax.scatter(archs_s1['Balanced_TOPSIS']['operational_cost'], archs_s1['Balanced_TOPSIS']['co2_emissions'], color='gold', edgecolors='black', marker='*', s=220, zorder=6, label='Balanced (TOPSIS)')
-    ax.set_xlabel('Annual Operational Cost, $f_2$ ($/yr)')
+    ax.set_xlabel('Annual Operational Cost, $f_2$ (USD/yr)')
     ax.set_ylabel('Annual $CO_2$ Emissions, $f_3$ (kg/yr)')
     ax.set_title('(c) Operational Cost vs. $CO_2$ Emissions')
     ax.grid(True, linestyle='--', alpha=0.5)
@@ -539,7 +539,7 @@ def main():
     order = np.argsort(F_seed1[:, 0])
     ax.plot(F_seed1[order, 0], topsis_scores_s1[order], '-o', color='teal', markersize=4, alpha=0.8, label='TOPSIS Score Profile')
     ax.scatter(archs_s1['Balanced_TOPSIS']['investment_cost'], topsis_scores_s1[topsis_idx_s1], color='gold', edgecolors='black', marker='*', s=240, zorder=6, label=f"Selected Trade-off ($C_i^*={topsis_scores_s1[topsis_idx_s1]:.4f}$)")
-    ax.set_xlabel('Annualized Investment Cost, $f_1$ ($/yr)')
+    ax.set_xlabel('Annualized Investment Cost, $f_1$ (USD/yr)')
     ax.set_ylabel('TOPSIS Closeness Coefficient ($C_i^*$)')
     ax.set_title('(d) MCDM Selection via TOPSIS across Pareto Front')
     ax.grid(True, linestyle='--', alpha=0.5)
@@ -558,8 +558,8 @@ def main():
     ax.scatter(archs_s1['Min_Op']['investment_cost'], archs_s1['Min_Op']['operational_cost'], archs_s1['Min_Op']['co2_emissions'], color='blue', marker='s', s=150, label='Min O&M Cost')
     ax.scatter(archs_s1['Min_CO2']['investment_cost'], archs_s1['Min_CO2']['operational_cost'], archs_s1['Min_CO2']['co2_emissions'], color='green', marker='D', s=150, label='Min CO2')
     ax.scatter(archs_s1['Balanced_TOPSIS']['investment_cost'], archs_s1['Balanced_TOPSIS']['operational_cost'], archs_s1['Balanced_TOPSIS']['co2_emissions'], color='gold', edgecolors='black', marker='*', s=260, label='Balanced Trade-off (TOPSIS)')
-    ax.set_xlabel('Investment Cost ($/yr)')
-    ax.set_ylabel('Operational Cost ($/yr)')
+    ax.set_xlabel('Investment Cost (USD/yr)')
+    ax.set_ylabel('Operational Cost (USD/yr)')
     ax.set_zlabel('$CO_2$ Emissions (kg/yr)')
     ax.set_title('3D Pareto Front and MCDM Selected Configurations')
     fig.colorbar(p3d, ax=ax, shrink=0.6, pad=0.1, label='TOPSIS Closeness ($C_i^*$)')
@@ -609,10 +609,11 @@ def main():
     b2 = ax.bar(x_pos + width/2, lp_costs, width, label='Look-Ahead LP Dispatch (HiGHS)', color='#3690c0', edgecolor='k')
     ax.set_xticks(x_pos)
     ax.set_xticklabels(cfg_labels)
-    ax.set_ylabel('Annual Operational Cost ($/yr)')
+    ax.set_ylabel('Annual Operational Cost (USD/yr)')
     ax.set_title('(a) Operational Cost: Greedy EMS vs. LP Benchmark')
+    ax.set_ylim(0, max(max(g_costs), max(lp_costs)) * 1.22)
     ax.grid(True, axis='y', linestyle='--', alpha=0.5)
-    ax.legend()
+    ax.legend(loc='upper left', framealpha=0.9)
     for rect in b1:
         h = rect.get_height()
         ax.annotate(f'${h:,.0f}', xy=(rect.get_x() + rect.get_width()/2, h), xytext=(0, 3), textcoords="offset points", ha='center', va='bottom', fontsize=8)
@@ -629,8 +630,9 @@ def main():
     ax.set_xticklabels(cfg_labels)
     ax.set_ylabel('Annual $CO_2$ Emissions (kg/yr)')
     ax.set_title('(b) Annual $CO_2$ Emissions: Greedy EMS vs. LP Benchmark')
+    ax.set_ylim(0, max(max(g_co2s), max(lp_co2s)) * 1.18)
     ax.grid(True, axis='y', linestyle='--', alpha=0.5)
-    ax.legend()
+    ax.legend(loc='upper right', framealpha=0.9)
     for rect in b3:
         h = rect.get_height()
         ax.annotate(f'{h:,.0f}', xy=(rect.get_x() + rect.get_width()/2, h), xytext=(0, 3), textcoords="offset points", ha='center', va='bottom', fontsize=8)
@@ -656,7 +658,7 @@ def main():
         y_vals = [item['ms_lcoe'] for item in sensitivity_results['fuel_price'][k]]
         ax.plot(pct_changes, y_vals, marker=markers[k], color=colors[k], linewidth=2, label=labels_map[k])
     ax.set_xlabel('Diesel Fuel Price Variation (%)')
-    ax.set_ylabel('LCOE ($/kWh)')
+    ax.set_ylabel('LCOE (USD/kWh)')
     ax.set_title(r'(a) Sensitivity to Diesel Fuel Price ($\pm 20\%$)')
     ax.grid(True, linestyle='--', alpha=0.5)
     ax.legend(fontsize=8)
@@ -667,7 +669,7 @@ def main():
         y_vals = [item['ms_lcoe'] for item in sensitivity_results['battery_cost'][k]]
         ax.plot(pct_changes, y_vals, marker=markers[k], color=colors[k], linewidth=2, label=labels_map[k])
     ax.set_xlabel('Battery Capital Cost Variation (%)')
-    ax.set_ylabel('LCOE ($/kWh)')
+    ax.set_ylabel('LCOE (USD/kWh)')
     ax.set_title(r'(b) Sensitivity to Battery Capital Cost ($\pm 20\%$)')
     ax.grid(True, linestyle='--', alpha=0.5)
     ax.legend(fontsize=8)
@@ -751,5 +753,156 @@ def main():
     print(f"\nAll revision experiments completed and saved to: {json_path}")
 
 
+def replot_r1_and_r4_only():
+    """
+    Fast plotting-only helper that re-generates Fig_R1_Pareto_2D_Projections.png
+    and Fig_R4_Greedy_vs_LP_Comparison.png without re-running the 20 NSGA-II seeds.
+    """
+    out_dir = os.path.join(os.path.dirname(__file__), "results", "revision_figures")
+    os.makedirs(out_dir, exist_ok=True)
+    json_path = os.path.join(out_dir, "revision_results_summary.json")
+    with open(json_path, "r", encoding="utf-8") as f:
+        summary_payload = json.load(f)
+
+    dispatch_comparison = summary_payload["dispatch_comparison_greedy_vs_lp"]
+
+    # Run only Seed 1 (with caching) to get the exact 100 Pareto points for Fig R1
+    seasonal_data = load_data()
+    ems_params = DEFAULT_GLOBAL_EMS_PARAMS.copy()
+    res_seed1, details_s1 = run_annual_nsga2_optimization(
+        seasonal_data,
+        ems_params=ems_params,
+        pop_size=100,
+        n_gen=150,
+        seed=1,
+        verbose=False,
+        return_details=True,
+        eval_cache={}
+    )
+    F_seed1 = details_s1["F"]
+    _, topsis_scores_s1, topsis_idx_s1 = select_topsis_solution(res_seed1)
+    archs_s1 = extract_four_archetypes(res_seed1)
+
+    plt.rcParams.update({
+        'font.size': 10,
+        'axes.titlesize': 11,
+        'axes.labelsize': 10,
+        'figure.dpi': 300
+    })
+
+    # Re-generate Figure R1
+    fig, axes = plt.subplots(2, 2, figsize=(13, 10))
+    # Panel (a): f1 vs f2
+    ax = axes[0, 0]
+    ax.scatter(F_seed1[:, 0], F_seed1[:, 1], c=topsis_scores_s1, cmap='viridis', s=45, alpha=0.85, edgecolors='k', linewidth=0.4, label='Pareto Solutions')
+    ax.scatter(archs_s1['Min_Inv']['investment_cost'], archs_s1['Min_Inv']['operational_cost'], color='red', marker='^', s=130, zorder=5, label='Min Investment')
+    ax.scatter(archs_s1['Min_Op']['investment_cost'], archs_s1['Min_Op']['operational_cost'], color='blue', marker='s', s=130, zorder=5, label='Min O&M Cost')
+    ax.scatter(archs_s1['Min_CO2']['investment_cost'], archs_s1['Min_CO2']['operational_cost'], color='green', marker='D', s=130, zorder=5, label='Min CO2')
+    ax.scatter(archs_s1['Balanced_TOPSIS']['investment_cost'], archs_s1['Balanced_TOPSIS']['operational_cost'], color='gold', edgecolors='black', marker='*', s=220, zorder=6, label='Balanced (TOPSIS & Equal-Wt)')
+    ax.set_xlabel('Annualized Investment Cost, $f_1$ (USD/yr)')
+    ax.set_ylabel('Annual Operational Cost, $f_2$ (USD/yr)')
+    ax.set_title('(a) Investment Cost vs. Operational Cost')
+    ax.grid(True, linestyle='--', alpha=0.5)
+    ax.legend(fontsize=8, loc='upper left')
+
+    # Panel (b): f1 vs f3
+    ax = axes[0, 1]
+    ax.scatter(F_seed1[:, 0], F_seed1[:, 2], c=topsis_scores_s1, cmap='viridis', s=45, alpha=0.85, edgecolors='k', linewidth=0.4)
+    ax.scatter(archs_s1['Min_Inv']['investment_cost'], archs_s1['Min_Inv']['co2_emissions'], color='red', marker='^', s=130, zorder=5, label='Min Investment')
+    ax.scatter(archs_s1['Min_Op']['investment_cost'], archs_s1['Min_Op']['co2_emissions'], color='blue', marker='s', s=130, zorder=5, label='Min O&M Cost')
+    ax.scatter(archs_s1['Min_CO2']['investment_cost'], archs_s1['Min_CO2']['co2_emissions'], color='green', marker='D', s=130, zorder=5, label='Min CO2')
+    ax.scatter(archs_s1['Balanced_TOPSIS']['investment_cost'], archs_s1['Balanced_TOPSIS']['co2_emissions'], color='gold', edgecolors='black', marker='*', s=220, zorder=6, label='Balanced (TOPSIS)')
+    ax.set_xlabel('Annualized Investment Cost, $f_1$ (USD/yr)')
+    ax.set_ylabel('Annual $CO_2$ Emissions, $f_3$ (kg/yr)')
+    ax.set_title('(b) Investment Cost vs. $CO_2$ Emissions')
+    ax.grid(True, linestyle='--', alpha=0.5)
+    ax.legend(fontsize=8, loc='upper right')
+
+    # Panel (c): f2 vs f3
+    ax = axes[1, 0]
+    sc3 = ax.scatter(F_seed1[:, 1], F_seed1[:, 2], c=topsis_scores_s1, cmap='viridis', s=45, alpha=0.85, edgecolors='k', linewidth=0.4)
+    ax.scatter(archs_s1['Min_Inv']['operational_cost'], archs_s1['Min_Inv']['co2_emissions'], color='red', marker='^', s=130, zorder=5, label='Min Investment')
+    ax.scatter(archs_s1['Min_Op']['operational_cost'], archs_s1['Min_Op']['co2_emissions'], color='blue', marker='s', s=130, zorder=5, label='Min O&M Cost')
+    ax.scatter(archs_s1['Min_CO2']['operational_cost'], archs_s1['Min_CO2']['co2_emissions'], color='green', marker='D', s=130, zorder=5, label='Min CO2')
+    ax.scatter(archs_s1['Balanced_TOPSIS']['operational_cost'], archs_s1['Balanced_TOPSIS']['co2_emissions'], color='gold', edgecolors='black', marker='*', s=220, zorder=6, label='Balanced (TOPSIS)')
+    ax.set_xlabel('Annual Operational Cost, $f_2$ (USD/yr)')
+    ax.set_ylabel('Annual $CO_2$ Emissions, $f_3$ (kg/yr)')
+    ax.set_title('(c) Operational Cost vs. $CO_2$ Emissions')
+    ax.grid(True, linestyle='--', alpha=0.5)
+    cb = plt.colorbar(sc3, ax=ax)
+    cb.set_label('TOPSIS Closeness Coefficient ($C_i^*$)')
+
+    # Panel (d): TOPSIS Closeness Coefficient vs Investment Cost
+    ax = axes[1, 1]
+    order = np.argsort(F_seed1[:, 0])
+    ax.plot(F_seed1[order, 0], topsis_scores_s1[order], '-o', color='teal', markersize=4, alpha=0.8, label='TOPSIS Score Profile')
+    ax.scatter(archs_s1['Balanced_TOPSIS']['investment_cost'], topsis_scores_s1[topsis_idx_s1], color='gold', edgecolors='black', marker='*', s=240, zorder=6, label=f"Selected Trade-off ($C_i^*={topsis_scores_s1[topsis_idx_s1]:.4f}$)")
+    ax.set_xlabel('Annualized Investment Cost, $f_1$ (USD/yr)')
+    ax.set_ylabel('TOPSIS Closeness Coefficient ($C_i^*$)')
+    ax.set_title('(d) MCDM Selection via TOPSIS across Pareto Front')
+    ax.grid(True, linestyle='--', alpha=0.5)
+    ax.legend(fontsize=8, loc='lower left')
+
+    plt.tight_layout()
+    fig_r1_path = os.path.join(out_dir, "Fig_R1_Pareto_2D_Projections.png")
+    plt.savefig(fig_r1_path, dpi=300)
+    plt.close(fig)
+
+    # Re-generate Figure R4
+    fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+    cfg_labels = ['Min Inv.', 'Min O&M', 'Min CO2', 'Balanced']
+    cfg_keys = ['Min_Inv', 'Min_OM', 'Min_CO2', 'Balanced']
+    x_pos = np.arange(len(cfg_keys))
+    width = 0.36
+
+    g_costs = [dispatch_comparison[k]['greedy_op_cost_usd'] for k in cfg_keys]
+    lp_costs = [dispatch_comparison[k]['lp_op_cost_usd'] for k in cfg_keys]
+
+    ax = axes[0]
+    b1 = ax.bar(x_pos - width/2, g_costs, width, label='Rule-Based Greedy EMS', color='#2b5c8f', edgecolor='k')
+    b2 = ax.bar(x_pos + width/2, lp_costs, width, label='Look-Ahead LP Dispatch (HiGHS)', color='#3690c0', edgecolor='k')
+    ax.set_xticks(x_pos)
+    ax.set_xticklabels(cfg_labels)
+    ax.set_ylabel('Annual Operational Cost (USD/yr)')
+    ax.set_title('(a) Operational Cost: Greedy EMS vs. LP Benchmark')
+    ax.set_ylim(0, max(max(g_costs), max(lp_costs)) * 1.22)
+    ax.grid(True, axis='y', linestyle='--', alpha=0.5)
+    ax.legend(loc='upper left', framealpha=0.9)
+    for rect in b1:
+        h = rect.get_height()
+        ax.annotate(f'${h:,.0f}', xy=(rect.get_x() + rect.get_width()/2, h), xytext=(0, 3), textcoords="offset points", ha='center', va='bottom', fontsize=8)
+    for rect in b2:
+        h = rect.get_height()
+        ax.annotate(f'${h:,.0f}', xy=(rect.get_x() + rect.get_width()/2, h), xytext=(0, 3), textcoords="offset points", ha='center', va='bottom', fontsize=8)
+
+    g_co2s = [dispatch_comparison[k]['greedy_co2_kg'] for k in cfg_keys]
+    lp_co2s = [dispatch_comparison[k]['lp_co2_kg'] for k in cfg_keys]
+    ax = axes[1]
+    b3 = ax.bar(x_pos - width/2, g_co2s, width, label='Rule-Based Greedy EMS', color='#238b45', edgecolor='k')
+    b4 = ax.bar(x_pos + width/2, lp_co2s, width, label='Look-Ahead LP Dispatch (HiGHS)', color='#66c2a4', edgecolor='k')
+    ax.set_xticks(x_pos)
+    ax.set_xticklabels(cfg_labels)
+    ax.set_ylabel('Annual $CO_2$ Emissions (kg/yr)')
+    ax.set_title('(b) Annual $CO_2$ Emissions: Greedy EMS vs. LP Benchmark')
+    ax.set_ylim(0, max(max(g_co2s), max(lp_co2s)) * 1.18)
+    ax.grid(True, axis='y', linestyle='--', alpha=0.5)
+    ax.legend(loc='upper right', framealpha=0.9)
+    for rect in b3:
+        h = rect.get_height()
+        ax.annotate(f'{h:,.0f}', xy=(rect.get_x() + rect.get_width()/2, h), xytext=(0, 3), textcoords="offset points", ha='center', va='bottom', fontsize=8)
+    for rect in b4:
+        h = rect.get_height()
+        ax.annotate(f'{h:,.0f}', xy=(rect.get_x() + rect.get_width()/2, h), xytext=(0, 3), textcoords="offset points", ha='center', va='bottom', fontsize=8)
+
+    plt.tight_layout()
+    fig_r4_path = os.path.join(out_dir, "Fig_R4_Greedy_vs_LP_Comparison.png")
+    plt.savefig(fig_r4_path, dpi=300)
+    plt.close(fig)
+    print(f"Re-generated:\n  - {fig_r1_path}\n  - {fig_r4_path}")
+
+
 if __name__ == "__main__":
-    main()
+    if "--replot-only" in sys.argv:
+        replot_r1_and_r4_only()
+    else:
+        main()
